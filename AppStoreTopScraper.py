@@ -259,7 +259,6 @@ def analyze_ratings(apps):
 
 # 사용 예제
 if __name__ == "__main__":
-    # 스크래퍼 인스턴스 생성
     scraper = AppStoreTopScraper(country='kr', limit=10)  # 테스트용으로 10개만
 
     # 무료 앱 Top 수집

@@ -1,1 +1,3 @@
 # store-scaper
+
+google, apple

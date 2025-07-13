@@ -8,7 +8,6 @@ import time
 
 
 class GooglePlayStoreTopScraper:
-
     @staticmethod
     def get_google_play_top_apps():
         url = "https://play.google.com/store/apps/collection/topselling_free"
