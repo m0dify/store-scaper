@@ -1,0 +1,16 @@
+exports/
+.idea/
+*.iml
+*.log
+*.tmp
+.DS_Store
+node_modules/
+dist/
+coverage/
+.env
+.vscode/
+*.env.local
+*.env.development
+*.env.test
+*.env.production
+npm-debug.log*
