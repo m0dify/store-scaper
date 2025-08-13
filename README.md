@@ -1,44 +1,48 @@
-# Store Scraper
+## 실행 방법
 
-앱스토어(App Store)와 구글 플레이스토어(Google Play Store)의 인기 앱 정보를 수집하고, CSV 또는 JSON 파일로 저장할 수 있는 파이썬 프로젝트입니다.
-
-## 주요 기능
-
-- **Apple App Store 인기 앱 수집**
-  - 국가, 차트 타입, 앱 개수 등 다양한 옵션 지원
-  - 앱 상세 정보까지 수집 가능
-- **Google Play Store 인기 앱 수집**
-  - 인기 무료 앱 등 다양한 컬렉션 시도
-- **CSV/JSON 파일로 저장**
-  - 모든 결과는 `exports` 폴더 하위에 저장
-
-## 설치 방법
-
-1. Python 3.7 이상이 필요합니다.
-2. 필요한 패키지 설치:
+1. **필수 패키지 설치**
     ```bash
     pip install requests pandas beautifulsoup4
     ```
 
-## 사용 방법
-
-1. 터미널에서 프로젝트 폴더로 이동 후 실행:
+2. **프로그램 실행**
+    프로젝트 폴더에서 아래 명령어로 실행합니다.
     ```bash
     python main.py
     ```
-2. 안내에 따라 수집할 스토어(앱스토어/플레이스토어/둘 다)를 선택합니다.
-3. 각 스토어별로 국가, 차트, 저장 형식 등을 입력하면 결과가 `exports` 폴더에 저장됩니다.
 
-## 파일 구조
+3. **스토어 선택**
+    실행 후 아래와 같은 안내가 출력됩니다.
+    ```
+    수집할 스토어를 선택하세요:
+    1. Apple App Store
+    2. Google Play Store
+    3. 둘 다
+    번호 입력 (1/2/3):
+    ```
+    원하는 번호를 입력하세요.
 
-- `main.py` : 실행 및 사용자 입력 처리
-- `AppStoreTopScraper.py` : 앱스토어 인기 앱 수집 클래스
-- `GooglePlayStoreTopScraper.py` : 구글 플레이스토어 인기 앱 수집 클래스
-- `exports/` : 결과 파일 저장 폴더
+4. **옵션 입력**
+    각 스토어별로 국가 코드, 차트 타입, 저장 형식(csv/json), 파일명 등을 입력하라는 안내가 나옵니다.  
+    엔터만 입력하면 기본값이 적용됩니다.
 
-## 참고
+5. **결과 확인**
+    수집된 데이터는 `exports` 폴더 하위에 입력한 파일명으로 저장됩니다.
 
-- Apple App Store 데이터는 iTunes RSS API를 사용합니다.
-- Google Play Store 데이터는 웹 크롤링 방식으로 수집합니다(구글 정책에 따라 일부 정보가 누락될 수 있음).
+---
 
-##
+**예시 실행 흐름**
+```
+$ python main.py
+수집할 스토어를 선택하세요:
+1. Apple App Store
+2. Google Play Store
+3. 둘 다
+번호 입력 (1/2/3): 1
+앱스토어 국가 코드 입력 (예: kr, us, jp) [기본값: kr]:
+수집할 앱 개수 입력 (최대 200) [기본값: 100]:
+차트 타입 입력 (topfreeapplications, toppaidapplications, topgrossingapplications) [기본값: topfreeapplications]:
+저장 형식 선택 (csv/json) [기본값: csv]:
+저장 파일명 입력 (확장자 제외) [기본값: appstore_top_apps]:
+```
+입력이 끝나면 `exports/appstore_top_apps.csv` 파일이 생성됩니다.
